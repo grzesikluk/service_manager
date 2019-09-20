@@ -1,0 +1,7 @@
+---
+- name: Restart service
+  service:
+    name: "{{service}}"
+    state: restarted
+  when: new_config.stat.checksum != old_config.stat.checksum
+  become: true

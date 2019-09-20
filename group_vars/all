@@ -1,0 +1,4 @@
+---
+server_configuration: "server_parameter=1"
+server_config_path: "/tmp/var_output.ansible"
+service: "myservice"

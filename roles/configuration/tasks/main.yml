@@ -1,0 +1,20 @@
+---
+- name: Store old config
+  copy:
+    src: "{{server_config_path}}"
+    dest: "{{server_config_path}}.old"
+
+- name: Write config file
+  copy:
+    content: "{{server_configuration}}"
+    dest: "{{server_config_path}}"
+
+- name: Stat old config file
+  stat:
+    path: "{{server_config_path}}.old"
+  register: old_config
+
+- name: Stat new config file
+  stat:
+    path: "{{server_config_path}}"
+  register: new_config
